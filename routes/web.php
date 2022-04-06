@@ -27,3 +27,7 @@ Route::post('/times/rest_stop', 'TimeController@rest_stop_store');
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
