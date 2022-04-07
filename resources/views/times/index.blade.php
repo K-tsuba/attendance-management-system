@@ -51,7 +51,10 @@
             request.setRequestHeader('X-CSRF-Token', token);
             request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             request.send("status=stop");
+            document.getElementById("start").disabled = false;
             document.getElementById("stop").disabled = true;
+            document.getElementById("rest_start").disabled = true;
+            document.getElementById("rest_stop").disabled = true;
         }
         
         function rest_start() {
