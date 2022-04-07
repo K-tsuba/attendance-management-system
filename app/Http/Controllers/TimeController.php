@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\Time;
+use App\User;
 
 
 class TimeController extends Controller
@@ -13,7 +15,7 @@ class TimeController extends Controller
     {
         $input = $request['status'];
         if ($input === 'start'){
-            // $time->user_id = Auth::user()->id;
+            $time->user_id = Auth::user()->id;
             $time->start_time = new Carbon('now');
             // $time->study_site_id = $study_site->id;
             $time->save();
