@@ -23,6 +23,7 @@ Route::post('/times/start_store', 'TimeController@start_store');
 Route::post('/times/stop_store', 'TimeController@stop_store');
 Route::post('/times/rest_start', 'TimeController@rest_start_store');
 Route::post('/times/rest_stop', 'TimeController@rest_stop_store');
+Route::get('/times/show', 'TimeController@show');
 
 
 
