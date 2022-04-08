@@ -25,6 +25,8 @@ Route::post('/times/rest_start', 'TimeController@rest_start_store');
 Route::post('/times/rest_stop', 'TimeController@rest_stop_store');
 Route::get('/times/show', 'TimeController@show');
 
+Route::get('/users/index', 'UserController@index');
+
 
 
 
