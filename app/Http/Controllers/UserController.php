@@ -11,8 +11,7 @@ class UserController extends Controller
     public function index(Time $time)
     {
         $today = Carbon::today();
-        // $time = $time->whereDate('updated_at', $today)->get();
-        $time = $time->get();
+        $time = $time->whereDate('updated_at', $today)->get();
         return view('/users/index')->with([
             'times' => $time
         ]);
