@@ -34,3 +34,6 @@ Route::get('/users/index', 'UserController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/linelogin', 'LineLoginController@lineLogin')->name('linelogin');
+Route::get('/callback', 'LineLoginController@callback')->name('callback');
