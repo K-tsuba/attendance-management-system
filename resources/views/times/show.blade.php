@@ -5,6 +5,7 @@
     @foreach ($times as $time)
         <div>
             @if(isset( $time ))
+            
             <p>User Name : {{ $time->user->name }}</p>
             @else
             <p>User Name : name</p>

@@ -21,7 +21,7 @@
 </head>
 <body class="pt-5">
     <div id="app">
-        <nav class="navbar navbar-light shadow-sm fixed-top">
+        <nav class="navbar navbar-light bg-secondary shadow-sm fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -32,10 +32,8 @@
                 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="/">Home</a>
                         <li class="nav-item">
-                            <a class="nav-link" href="/times/index">出勤</a>
+                            <a class="nav-link" href="/">出勤</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/users/index">出勤状況</a>
