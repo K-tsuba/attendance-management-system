@@ -30,6 +30,28 @@
             @endif
         @endforeach
     </div>
+    <div>
+        <p>通知を送る</p>
+        <form action="" method="post">
+            @csrf
+            <div>
+                <p>送信相手</p>
+                <select id="">
+                    <option selected>送信相手</option>
+                    @foreach($users as $value)
+                    <option value="{{ $value->line_id }}" >{{ $value->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div>
+                <p>通知内容</p>
+                <input type="text" placeholder="通知内容">
+            </div>
+            <div>
+                <input type="submit" value="send">
+            </div>
+        </form>
+    </div>
     <script>
         function showClock() {
             let nowTime = new Date();
