@@ -52,6 +52,10 @@
             </div>
         </form>
     </div>
+    <div>
+        <p>誕生日の人の名前表示</p>
+        <p>〇月〇日は○○さんの誕生日です</p>
+    </div>
     <script>
         function showClock() {
             let nowTime = new Date();
