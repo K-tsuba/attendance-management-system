@@ -3,12 +3,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>attendance</title>
     
-    <style>
-        .btn {
-            width: 100px;
-        }
-    </style>
-    
 </head>
 @extends('layouts.app')
 @section('content')
@@ -17,12 +11,13 @@
         <h1 class="text-center">アルバイト先の名前</h1>
         <h2 class="text-center">ヒトコトメッセージ</h2>
         <div id="realtime"></div>
-        <div class="">
-            <button id="start" class="btn btn-outline-secondary">出勤</button>
-            <button id="stop" class="btn btn-outline-secondary" disabled>退勤</button>
-            <button id="rest_start" class="btn btn-outline-secondary" disabled>休憩開始</button>
-            <button id="rest_stop" class="btn btn-outline-secondary" disabled>休憩終了</button>
-        </div>    
+        <div class="btn-group-lg text-center mt-3">
+            <button id="start" class="btn btn-secondary">出勤</button>
+            <button id="stop" class="btn btn-secondary mx-3" disabled>退勤</button>
+            <button id="rest_start" class="btn btn-secondary mx-3" disabled>休憩開始</button>
+            <button id="rest_stop" class="btn btn-secondary" disabled>休憩終了</button>
+        </div>
+        <div id="point" class="text-center mt-3 p-2" style="font-size: 20px;"></div>
     </div>
     
     <script>
@@ -64,6 +59,9 @@
             document.getElementById("stop").disabled = true;
             document.getElementById("rest_start").disabled = true;
             document.getElementById("rest_stop").disabled = true;
+            const point = document.getElementById('point');
+            point.innerHTML = '';
+            point.style = '';
         }
         
         function rest_start() {
@@ -94,11 +92,7 @@
             let nowHour = nowTime.getHours();
             let nowMin  = nowTime.getMinutes();
             let nowSec  = nowTime.getSeconds();
-            
-            
-            
             let msg = "現在時刻：" + nowHour + " : " + nowMin + " : " + nowSec;
-            
             const realtime = document.getElementById("realtime");
             realtime.innerHTML = msg;
             realtime.style.fontSize = '30px';
@@ -107,9 +101,17 @@
         }
         setInterval('showClock()',1000);
         
+        function point () {
+            const point = document.getElementById('point');
+            let num = Math.floor(Math.random() * 10) + 1;
+            point.innerHTML = '今日のポイントは' + num + 'ポイントです。';
+            point.style.background = '#FFFFDD';
+        }
+        
         window.onload = function () {
             var start = document.getElementById('start');
             start.addEventListener('click', start_timer, false);
+            start.addEventListener('click', point, false);
             var stop = document.getElementById('stop');
             stop.addEventListener('click', stop_timer, false);
             var restStart = document.getElementById('rest_start');
