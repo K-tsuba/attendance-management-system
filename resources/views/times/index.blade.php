@@ -3,19 +3,28 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>attendance</title>
     
+    <style>
+        .btn {
+            width: 100px;
+        }
+    </style>
+    
 </head>
 @extends('layouts.app')
 @section('content')
 <body>
-    <h1>アルバイト先の名前</h1>
-    <h2>ヒトコトメッセージ</h2>
-    <div>現在の日にちと時刻</div>
-    <div class="">
-        <button id="start" class="">出勤</button>
-        <button id="stop" class="" disabled>退勤</button>
-        <button id="rest_start" class="" disabled>休憩開始</button>
-        <button id="rest_stop" class="" disabled>休憩終了</button>
+    <div class="container">
+        <h1 class="text-center">アルバイト先の名前</h1>
+        <h2 class="text-center">ヒトコトメッセージ</h2>
+        <div id="realtime"></div>
+        <div class="">
+            <button id="start" class="btn btn-outline-secondary">出勤</button>
+            <button id="stop" class="btn btn-outline-secondary" disabled>退勤</button>
+            <button id="rest_start" class="btn btn-outline-secondary" disabled>休憩開始</button>
+            <button id="rest_stop" class="btn btn-outline-secondary" disabled>休憩終了</button>
+        </div>    
     </div>
+    
     <script>
         
         function start_timer() {
@@ -79,6 +88,24 @@
             request.send("status=rest_stop");
             document.getElementById("rest_stop").disabled = true;
         }
+        
+        function showClock() {
+            let nowTime = new Date();
+            let nowHour = nowTime.getHours();
+            let nowMin  = nowTime.getMinutes();
+            let nowSec  = nowTime.getSeconds();
+            
+            
+            
+            let msg = "現在時刻：" + nowHour + " : " + nowMin + " : " + nowSec;
+            
+            const realtime = document.getElementById("realtime");
+            realtime.innerHTML = msg;
+            realtime.style.fontSize = '30px';
+            realtime.style.marginLeft = '20px';
+            
+        }
+        setInterval('showClock()',1000);
         
         window.onload = function () {
             var start = document.getElementById('start');
