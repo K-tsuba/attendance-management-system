@@ -17,7 +17,7 @@
             <button id="rest_start" class="btn btn-secondary mx-3" disabled>休憩開始</button>
             <button id="rest_stop" class="btn btn-secondary" disabled>休憩終了</button>
         </div>
-        <div id="point" class="text-center mt-3 p-2" style="font-size: 20px;"></div>
+        <div id="point" class="text-center mt-3 p-2"></div>
     </div>
     
     <script>
@@ -106,6 +106,7 @@
             let num = Math.floor(Math.random() * 10) + 1;
             point.innerHTML = '今日のポイントは' + num + 'ポイントです。';
             point.style.background = '#FFFFDD';
+            point.style.fontSize = '20px';
         }
         
         window.onload = function () {
