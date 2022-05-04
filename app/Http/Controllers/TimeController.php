@@ -11,6 +11,9 @@ use App\User;
 
 class TimeController extends Controller
 {
+    public function index () {
+        return view('times.index');
+    }
     public function start_store(Request $request, Time $time)
     {
         $input = $request['status'];
